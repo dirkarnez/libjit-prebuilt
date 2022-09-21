@@ -26,7 +26,7 @@ jobs:
         uses: msys2/setup-msys2@v2
         with:
           msystem: MINGW64
-          install: make autoconf automake libtool autogen perl mingw-w64-x86_64-pkg-config
+          install: make autoconf automake libtool autogen perl bison flex mingw-w64-x86_64-pkg-config
           
       - name: curl x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z
         shell: cmd
