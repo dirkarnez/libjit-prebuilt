@@ -40,8 +40,8 @@ jobs:
         shell: msys2 {0}
         run: |
             export PATH="${{ github.workspace }}/mingw64:${{ github.workspace }}/mingw64/bin:${{ github.workspace }}/msys64/usr/bin:/usr/bin" &&
-            cd libjit && g++ --version && ./bootstrap mingw64 -static --prefix="$(pwd)/${{ env.installationPath }}" &&
-            make install
+            cd libjit && g++ --version && ./bootstrap mingw64 -static --prefix="$(pwd)/${{ env.installationPath }}" && 
+            make && make install
             
       - name: Archive Release
         uses: thedoctor0/zip-release@master
