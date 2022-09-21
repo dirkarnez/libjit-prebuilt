@@ -40,7 +40,10 @@ jobs:
         shell: msys2 {0}
         run: |
             export PATH="${{ github.workspace }}/mingw64:${{ github.workspace }}/mingw64/bin:${{ github.workspace }}/msys64/usr/bin:/usr/bin" &&
-            cd libjit && g++ --version && ./bootstrap && 
+            cd libjit && 
+            g++ --version && 
+            ./bootstrap && 
+            cat ./configure &&
             ./configure mingw64 --prefix="$(pwd)/${{ env.installationPath }}"
             make && make install
             
