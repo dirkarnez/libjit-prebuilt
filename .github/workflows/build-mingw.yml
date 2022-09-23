@@ -43,7 +43,6 @@ jobs:
             cd libjit && 
             g++ --version && 
             ./bootstrap && 
-            cat ./configure &&
             ./configure mingw64 --prefix="$(pwd)/${{ env.installationPath }}"
             make && make install
             
