@@ -43,19 +43,19 @@ jobs:
             cd libjit && 
             g++ --version && 
             ./bootstrap && 
-            ./configure mingw64 --prefix="$(pwd)/${{ env.installationPath }}"
+            ./configure mingw64 --prefix="$(pwd)/${{ env.installationPath }}" &&
             make && make install
             
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
           type: 'zip'
-          directory: "${{ github.workspace }}/libjit/${{ env.installationPath }}"
+          directory: "${{ github.workspace }}/libjit"
           filename: "${{ env.mingwTargetZip }}"
         
       - name: Release prebuilt
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "${{ github.workspace }}/libjit/${{ env.installationPath }}/${{ env.mingwTargetZip }}"
+          artifacts: "${{ github.workspace }}/libjit/${{ env.mingwTargetZip }}"
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
