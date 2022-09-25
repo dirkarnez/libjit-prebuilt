@@ -43,8 +43,7 @@ jobs:
             cd libjit && 
             g++ --version && 
             ./bootstrap && 
-            ./configure mingw64 --prefix="$(pwd)/${{ env.installationPath }}" &&
-            make && make install
+            ./configure mingw64 --prefix="$(pwd)/${{ env.installationPath }}"
             
       - name: Archive Release
         uses: thedoctor0/zip-release@master
