@@ -44,7 +44,8 @@ jobs:
             g++ --version && 
             ./bootstrap && 
             ./configure --help &&
-            ./configure mingw64 --prefix="$(pwd)/${{ env.installationPath }}"
+            ./configure --prefix="$(pwd)/${{ env.installationPath }}" &&
+            make && make install
             
       - name: Archive Release
         uses: thedoctor0/zip-release@master
